@@ -1,7 +1,9 @@
-
-
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.7.3/firebase-app.js";
-
+import {
+    getAuth,
+    GoogleAuthProvider,
+    signInWithPopup,
+} from "https://www.gstatic.com/firebasejs/11.7.1/firebase-auth.js";
 const firebaseConfig = {
     apiKey: "AIzaSyDAoVD28HZJSvNYxJnZ76SQz76c6phyy60",
     authDomain: "class-d93aa.firebaseapp.com",
@@ -13,3 +15,15 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const provider = new GoogleAuthProvider();
+
+
+// Sign Up Google
+const signUpGoogle = () => {
+    // alert("working")
+    console.log("working");
+    
+}
+
+window.signUpGoogle = signUpGoogle
