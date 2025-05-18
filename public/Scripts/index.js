@@ -34,10 +34,28 @@ const signUpGoogle = () => {
         }).catch((error) => {
             // Handle Errors here.
             const errorCode = error.code;
-            const errorMessage = error.message;
             console.log(errorCode);
-            console.log(errorMessage);
-
+            if (errorCode === 'auth/account-exists-with-different-credential') {
+                alert('Another sign up provider has been used for this mail')
+            }
+            if (errorCode === 'auth/popup-closed-by-user') {
+                alert('The sign-in popup was closed before completing the sign in.');
+            }
+            if (errorCode === 'auth/cancelled-popup-request') {
+                alert('Popup sign in was canceled because another popup was opened.');
+            }
+            if (errorCode === 'auth/popup-blocked') {
+                alert('The browser blocked the sign-in popup. Please allow popups and try again.');
+            }
+            if (errorCode === 'auth/operation-not-allowed') {
+                alert('GitHub sign-in is not enabled in your Firebase project.');
+            }
+            if (errorCode === 'auth/unauthorized-domain') {
+                alert('This domain is not authorized for OAuth operations.');
+            }
+            if (errorCode === 'auth/network-request-failed') {
+                alert('Network error. Please check your connection and try again.');
+            }
         });
 
 }
