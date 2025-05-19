@@ -10,9 +10,10 @@
     <div class="form-container">
       <p class="title">Welcome</p>
       <form class="form">
-        <input id="uNmae" type="text" class="input" placeholder="Username" />
+        <input id="uName" type="text" class="input" placeholder="Username" />
         <input id="mail" type="email" class="input" placeholder="Email" />
         <input id="pass" type="password" class="input" placeholder="Password" />
+        <!-- <i id="show" class="bi bi-eye">&#xf341;</i> -->
         <p class="page-link">
           <span class="page-link-label">Forgot Password?</span>
         </p>
@@ -25,7 +26,7 @@
         <span><a href="signin.html" class="sign-up-link">Sign in</a></span>
       </p>
       <div class="buttons-container">
-        <div class="github-login-button">
+        <div onclick="signGitHub()" class="github-login-button">
           <span class="icon-bg">
             <svg
               stroke="currentColor"
