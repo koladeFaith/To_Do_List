@@ -1,8 +1,8 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.7.3/firebase-app.js";
 import {
-    getAuth
+    getAuth, onAuthStateChanged
 } from "https://www.gstatic.com/firebasejs/11.7.3/firebase-auth.js";
-
+import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/11.7.3/firebase-database.js";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -17,12 +17,32 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
-
+const database = getDatabase(app);
+onAuthStateChanged(auth, (user) => {
+    if (user) {
+        console.log(user);
+        show.innerHTML = `<h3>Welcome ${user.displayName}</h3>`
+    } else {
+        setTimeout(() => {
+            window.location.href = 'signin.html'
+        }, 500)
+    }
+});
 
 const addToDo = () => {
-alert("working")
+    const myToDo = document.getElementById('todo').value
+    if (myToDo === '') {
+        alert('The input is empty')
+    } else {
+        console.log(myToDo)
+        const date = new Date().toLocaleDateString()
+        const time = new Date().toLocaleTimeString()
+        const toDoObj = { myToDo, date, time }
+        console.log(toDoObj);
+        const toDoRef = ref(database, 'toDo/');
+        set(toDoRef, toDoObj)
+    }
 }
 
 
-
-window.addToDo = addToDo
+    window.addToDo = addToDo
