@@ -37,7 +37,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
-const signInUser = () => { 
+const signInUser = () => {
     const email = document.getElementById('mail').value
     const password = document.getElementById('pass').value
     if (email === '' || password === "") {
@@ -49,9 +49,9 @@ const signInUser = () => {
                 console.log(user);
                 toastify("Sign in successful", "#006400", "#fff")
 
-                setTimeout(() => {
+                user ? setTimeout(() => {
                     window.location.href = 'dashboard.html'
-                }, 1000)
+                }, 1000) : window.location.href = 'index.html'
             })
             .catch((error) => {
                 const errorCode = error.code;
