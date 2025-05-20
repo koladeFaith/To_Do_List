@@ -5,17 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="./Css/signin.css" />
+    <!-- Toastify -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
   </head>
   <body>
     <div class="form-container">
       <p class="title">Welcome back</p>
       <form class="form">
-        <input type="email" class="input" placeholder="Email" />
-        <input type="password" class="input" placeholder="Password" />
+        <input id="mail" type="email" class="input" placeholder="Email" />
+        <input id="pass" type="password" class="input" placeholder="Password" />
         <p class="page-link">
           <span class="page-link-label">Forgot Password?</span>
         </p>
-        <button class="form-btn">Log In</button>
+        <button type="button" onclick="signInUser()" class="form-btn">Log In</button>
       </form>
       <p class="sign-up-label">
         Already have an account?
@@ -78,4 +80,6 @@ c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.
       </div>
     </div>
   </body>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+  <script type="module" src="Scripts/signin.js"></script>
 </html>
