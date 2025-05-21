@@ -59,7 +59,33 @@ body::before {
   box-sizing: border-box;
   padding: 12px 15px;
 }
+.input-icon-group {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 15px;
+}
 
+.input.with-icon {
+  border-radius: 20px 0 0 20px;
+  border-right: none;
+  flex: 1;
+  padding-right: 0;
+  height: 44px;
+}
+
+.input-icon {
+  background: #fff;
+  border: 1px solid #c0c0c0;
+  border-left: none;
+  border-radius: 0 20px 20px 0;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  padding: 0 15px;
+  color: #747474;
+  cursor: pointer;
+}
 .page-link {
   text-decoration: underline;
   margin: 0;
