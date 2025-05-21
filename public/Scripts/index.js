@@ -46,7 +46,7 @@ const signUpUser = () => {
     const email = document.getElementById('mail').value
     const password = document.getElementById('pass').value
     if (userName === '' || email === '' || password === "") {
-     toastify("Fill the input required", "#f00", "#fff")
+        toastify("Fill the input required", "#f00", "#fff")
     } else {
         const userObj = {
             userName, email, password
@@ -163,15 +163,17 @@ window.signGitHub = signGitHub
 
 
 
-// const password = document.getElementById('pass')
-// const show = document.querySelector("#show")
-// show.addEventListener("click", () => {
-//     if (password.getAttribute("type") === "password") {
-//         password.setAttribute("type", "text")
-//         show.classList.replace("bi-eye", "bi-eye-slash")
-//     } else {
-//         password.setAttribute("type", "password")
-//         show.classList.replace("bi-eye-slash", "bi-eye")
+const password = document.getElementById('pass')
+const show = document.querySelector("#show")
+show.addEventListener("click", () => {
+    if (password.getAttribute("type") === "password") {
+        password.setAttribute("type", "text")
+        show.classList.replace("bi-eye", "bi-eye-slash")
+    } else {
+        password.setAttribute("type", "password")
+        show.classList.replace("bi-eye-slash", "bi-eye")
 
-//     }
-// })
+    }
+})
+
+
