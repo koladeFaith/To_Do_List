@@ -2,7 +2,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/11.7.3/firebas
 import {
     getAuth, onAuthStateChanged
 } from "https://www.gstatic.com/firebasejs/11.7.3/firebase-auth.js";
-import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/11.7.3/firebase-database.js";
+import { getDatabase, ref, set, onValue } from "https://www.gstatic.com/firebasejs/11.7.3/firebase-database.js";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -11,7 +11,8 @@ const firebaseConfig = {
     projectId: "class-d93aa",
     storageBucket: "class-d93aa.firebasestorage.app",
     messagingSenderId: "416215641552",
-    appId: "1:416215641552:web:4cc22bb840dbfcf92e5dd5"
+    appId: "1:416215641552:web:4cc22bb840dbfcf92e5dd5",
+    databaseURL: "https://class-d93aa-default-rtdb.firebaseio.com"
 };
 
 // Initialize Firebase
@@ -39,10 +40,20 @@ const addToDo = () => {
         const time = new Date().toLocaleTimeString()
         const toDoObj = { myToDo, date, time }
         console.log(toDoObj);
-        const toDoRef = ref(database, 'toDo/');
+        const toDoRef = ref(database, 'toDo/3');
         set(toDoRef, toDoObj)
     }
 }
 
+let newRef = ref(database, 'myToDo');
+onValue(newRef, (snapshot) => {
+    const data = snapshot.val();
+    console.log(data);
+    data.map((info, i) => {
+        display.innerHTML = `<p>${i + 1}. ${info.myToDo}</p>
+        <small>${info.date} ${info.time}</small>
+        `
+    })
+});
 
-    window.addToDo = addToDo
+window.addToDo = addToDo
