@@ -40,18 +40,20 @@ const addToDo = () => {
         const time = new Date().toLocaleTimeString()
         const toDoObj = { myToDo, date, time }
         console.log(toDoObj);
-        const toDoRef = ref(database, 'toDo/3');
+        const toDoRef = ref(database, '');
         set(toDoRef, toDoObj)
     }
 }
 
-let newRef = ref(database, 'myToDo');
+let newRef = ref(database, 'todos')
 onValue(newRef, (snapshot) => {
     const data = snapshot.val();
     console.log(data);
+    display.innerHTML = ''
     data.map((info, i) => {
-        display.innerHTML = `<p>${i + 1}. ${info.myToDo}</p>
-        <small>${info.date} ${info.time}</small>
+        display.innerHTML += `
+            <p>${i + 1}. <strong>${info.myTodo}</strong></p>
+            <small>${info.time} ${info.date}</small>
         `
     })
 });
