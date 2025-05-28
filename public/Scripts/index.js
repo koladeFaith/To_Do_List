@@ -65,7 +65,7 @@ const signUpUser = () => {
                 const errorCode = error.code;
                 console.log(errorCode);
                 if (errorCode === 'auth/password-does-not-meet-requirements') {
-                    toastify("Password should be at least 6 characters", "#f00", "#fff")
+                    toastify("Password should be at least one uppercase, lowercase, special character and not less than 6 characters", "#f00", "#fff")
                 }
                 if (errorCode === 'auth/email-already-in-use') {
                     toastify("Email already in use.", "#f00", "#fff")
